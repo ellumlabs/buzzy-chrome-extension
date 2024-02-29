@@ -1,42 +1,9 @@
 {
+    "version": "1.0.0",
     "manifest_version": 3,
-    "name": "Buzzy",
-    "description": "Buzzy Notification App",
-    "version": "1.0",
-    "permissions": [
-        "storage",
-        "activeTab",
-        "scripting"
-    ],
+    "name": "Buzzy Chrome Extension",
     "action": {
-        "default_popup": "hello.html",
-        "default_icon": "buzzy.png"
-    },
-    "background": {
-        "service_worker": "background.js"
-    },
-    "content_scripts": [
-        {
-            "matches": ["<all_urls>"],
-            "js": ["content.js"]
-        }
-    ],
-    "host_permissions": [
-        "<all_urls>"
-    ],
-    "web_accessible_resources": [
-        {
-            "resources": ["cursorY.svg"],
-            "matches": ["<all_urls>"]
-        }
-    ],
-    "commands": {
-        "triggerBuzz": {
-            "suggested_key": {
-                "default": "Alt+C",
-                "mac": "Alt+C"
-            },
-            "description": "Triggers Buzz"
-        }
+        "default_popup": "js/index.html",
+        "default_title": "Buzzy"
     }
 }
