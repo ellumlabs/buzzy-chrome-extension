@@ -10,5 +10,5 @@ chrome.commands.onCommand.addListener((command) => {
 });
 
 function main() {
-  console.log('i am the background')
+  console.log('background')
 }
