@@ -4,13 +4,13 @@ const CopyPlugin = require("copy-webpack-plugin")
 
 module.exports = {
     entry: {
-        index: "./src/index.tsx"
+        index: "./src/index.jsx"
     },
     mode: "production",
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
+                test: /\.jsx?$/,
                 use: [
                     {
                         loader: "ts-loader",
@@ -40,7 +40,7 @@ module.exports = {
         ...getHtmlPlugins(["index"]),
     ],
     resolve: {
-        extensions: [".tsx", ".ts", ".js"],
+        extensions: [".jsx", ".ts", ".js"],
     },
     output: {
         path: path.join(__dirname, "dist/js"),
