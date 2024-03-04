@@ -4,10 +4,10 @@ chrome.commands.onCommand.addListener((command) => {
       chrome.scripting.executeScript({
         target: { tabId: tabs[0].id },
         function: main,
-      });
-    });
+      })
+    })
   }
-});
+})
 
 function main() {
   console.log('background')
