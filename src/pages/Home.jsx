@@ -1,7 +1,9 @@
+import MenuDrawer from '../components/MenuDrawer'
+
 const Home = () => {
   return (
     <div className="home">
-      <p>Home</p>
+      <MenuDrawer /> 
     </div>
   )
 }
