@@ -6,10 +6,11 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  Button
+  Button,
+  Divider
 } from '@chakra-ui/react'
 
-import { ChevronDownIcon } from '@chakra-ui/icons'
+import { ChevronDownIcon, SettingsIcon, LockIcon } from '@chakra-ui/icons'
 
 const MenuDrawerHeader = () => {
   return (
@@ -26,11 +27,13 @@ const MenuDrawerHeader = () => {
           </Box>
         </MenuButton> 
         <MenuList>
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem>Menu Item</MenuItem>
+          <MenuItem>
+            <Text><SettingsIcon />Settings</Text>
+          </MenuItem>
+          <Divider />
+          <MenuItem>
+            <Text><LockIcon />Log out</Text>
+          </MenuItem>
         </MenuList>
       </Menu>
     </Box>

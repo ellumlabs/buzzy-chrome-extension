@@ -1,13 +1,7 @@
 .App {
-  border: 1px solid green;
-  background-color: red;
 }
 
 .container {
   width: 30rem;
   height: 30rem;
-}
-
-.home {
-  border: 1px solid red;
 }
