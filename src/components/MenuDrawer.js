@@ -19,7 +19,7 @@ const MenuDrawer = () => {
         <HamburgerIcon />
       </Button>
       <Drawer
-        isOpen={!isOpen}
+        isOpen={isOpen}
         onClose={onClose}
         placement='left'
       >
