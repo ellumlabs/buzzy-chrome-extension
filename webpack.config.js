@@ -1,6 +1,6 @@
 const path = require("path");
 const HTMLPlugin = require("html-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin")
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -16,24 +16,22 @@ module.exports = {
             loader: "ts-loader",
             options: {
               compilerOptions: { noEmit: false },
-            }
-          }],
-          exclude: /node_modules/,
+            },
+          },
+        ],
+        exclude: /node_modules/,
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: 'images/[hash][ext][query]',
+          filename: "images/[hash][ext][query]",
         },
       },
       {
         exclude: /node_modules/,
         test: /\.css$/i,
-        use: [
-          "style-loader",
-          "css-loader"
-        ]
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
@@ -44,6 +42,7 @@ module.exports = {
         { from: "src/helpers/background.js", to: "../background.js" },
         { from: "src/helpers/content.js", to: "../content.js" },
         { from: "src/assets/icons/*", to: "../images/[name][ext]" },
+        { from: "src/assets/images/*", to: "../images/[name][ext]" },
       ],
     }),
     ...getHtmlPlugins(["index"]),
