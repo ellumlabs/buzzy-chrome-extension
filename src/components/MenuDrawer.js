@@ -3,10 +3,19 @@ import {
   DrawerOverlay,
   DrawerContent,
   Button,
+  DrawerHeader,
+  DrawerBody,
+  Box,
+  Text,
+  Accordion,
+  AccordionItem,
+  AccordionPanel,
+  AccordionIcon,
+  AccordionButton,
   useDisclosure
 } from '@chakra-ui/react'
 
-import { HamburgerIcon } from '@chakra-ui/icons'
+import { HamburgerIcon, Search2Icon, ChatIcon, DragHandleIcon } from '@chakra-ui/icons'
 
 import MenuDrawerHeader from '../components/MenuDrawerHeader'
 
@@ -25,7 +34,49 @@ const MenuDrawer = () => {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <MenuDrawerHeader /> 
+          <DrawerHeader>
+            <MenuDrawerHeader /> 
+          </DrawerHeader>
+          <DrawerBody>
+            <Box display='flex' flexDirection='column' gap='4'>
+              <Box display='flex' flexDirection='column' gap='2'>
+                <Button leftIcon={<Search2Icon />} colorScheme='yellow' variant='ghost' justifyContent='flex-start'>
+                  <Text>Search</Text>
+                </Button>
+                <Button leftIcon={<ChatIcon />} colorScheme='yellow' variant='ghost' justifyContent='flex-start'>
+                  <Text>Inbox</Text>
+                </Button>
+                <Button leftIcon={<DragHandleIcon />} colorScheme='yellow' variant='ghost' justifyContent='flex-start'>
+                  <Text>Filters and Labels</Text>
+                </Button>
+              </Box>
+              <Accordion allowToggle>
+                <AccordionItem>
+                  <AccordionButton>
+                    <Box as="span" flex='1' textAlign='left' onClick={() => console.log('i was clicked')}>
+                      <Text as='u'>My Sites</Text>
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                  <AccordionPanel p={0}>
+                    <Button colorScheme='yellow' variant='ghost' w='100%' justifyContent='flex-start'>
+                      <Text>Hilton.com</Text>
+                    </Button>
+                  </AccordionPanel>
+                  <AccordionPanel p={0}>
+                    <Button colorScheme='yellow' variant='ghost' w='100%' justifyContent='flex-start'>
+                      <Text>Marriott.com</Text>
+                    </Button>
+                  </AccordionPanel>
+                  <AccordionPanel p={0}>
+                    <Button colorScheme='yellow' variant='ghost' w='100%' justifyContent='flex-start'>
+                      <Text>Motel5.com</Text>
+                    </Button>
+                  </AccordionPanel>
+                </AccordionItem>
+              </Accordion>
+            </Box>
+          </DrawerBody>
         </DrawerContent>
       </Drawer>
     </>

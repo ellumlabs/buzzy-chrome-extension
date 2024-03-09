@@ -27,12 +27,12 @@ const MenuDrawerHeader = () => {
           </Box>
         </MenuButton> 
         <MenuList>
-          <MenuItem>
-            <Text><SettingsIcon />Settings</Text>
+          <MenuItem icon={<SettingsIcon />} fontSize='sm'>
+            <Text>Settings</Text>
           </MenuItem>
           <Divider />
-          <MenuItem>
-            <Text><LockIcon />Log out</Text>
+          <MenuItem icon={<LockIcon />} fontSize='sm'>
+            <Text>Log out</Text>
           </MenuItem>
         </MenuList>
       </Menu>
