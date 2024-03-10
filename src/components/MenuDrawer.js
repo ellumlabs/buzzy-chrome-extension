@@ -19,6 +19,8 @@ import { HamburgerIcon, Search2Icon, ChatIcon, DragHandleIcon } from '@chakra-ui
 
 import MenuDrawerHeader from '../components/MenuDrawerHeader'
 
+import { PLACEHOLDER_SITES_LIST } from '../constants/constants'
+
 const MenuDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -58,21 +60,15 @@ const MenuDrawer = () => {
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
-                  <AccordionPanel p={0}>
-                    <Button colorScheme='yellow' variant='ghost' w='100%' justifyContent='flex-start'>
-                      <Text>Hilton.com</Text>
-                    </Button>
-                  </AccordionPanel>
-                  <AccordionPanel p={0}>
-                    <Button colorScheme='yellow' variant='ghost' w='100%' justifyContent='flex-start'>
-                      <Text>Marriott.com</Text>
-                    </Button>
-                  </AccordionPanel>
-                  <AccordionPanel p={0}>
-                    <Button colorScheme='yellow' variant='ghost' w='100%' justifyContent='flex-start'>
-                      <Text>Motel5.com</Text>
-                    </Button>
-                  </AccordionPanel>
+                  {
+                    PLACEHOLDER_SITES_LIST.map(site => (
+                      <AccordionPanel p={0}>
+                        <Button colorScheme='yellow' variant='ghost' w='100%' justifyContent='flex-start'>
+                          <Text>{site.url}</Text>
+                        </Button>
+                      </AccordionPanel>
+                    ))
+                  }
                 </AccordionItem>
               </Accordion>
             </Box>
