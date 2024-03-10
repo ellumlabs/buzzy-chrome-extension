@@ -32,9 +32,11 @@ const main = () => {
     document.documentElement.style.cursor = originalCursorStyle;
     let clickedElement = e.target;
 
-    console.log(clickedElement);
+    console.log('clickedElement: ', clickedElement);
     if (clickedElement != null) {
+      console.log('chrome', chrome)
       chrome.action.onClicked.addListener((tab) => {
+        console.log('tab: ', tab)
         chrome.scripting.executeScript({
           target: { tabId: tab.id },
           files: ["content.js"],
