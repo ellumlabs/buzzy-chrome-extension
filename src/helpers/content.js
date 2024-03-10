@@ -1,9 +1,7 @@
 let imageDropEnabled = false;
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  console.log("req", request);
   if (request.action === "triggerBuzz") {
-    console.log("content triggererd");
     changeCursor();
     imageDropEnabled = true;
   }
@@ -23,14 +21,19 @@ document.addEventListener(
 );
 
 const dropImageAtClick = (x, y) => {
-  console.log("dropImage");
-  const img = document.createElement("img");
-  img.src = chrome.runtime.getURL("images/customCursor.svg");
-  img.style.position = "fixed";
-  img.style.left = `${x}px`;
-  img.style.top = `${y}px`;
-  img.style.transform = "translate(-50%, -50%)";
-  document.body.appendChild(img);
+  const buzzyDivElement = document.createElement("div");
+  buzzyDivElement.style.position = "fixed";
+  buzzyDivElement.style.left = `${x}px`;
+  buzzyDivElement.style.top = `${y}px`;
+  buzzyDivElement.style.height = "50px";
+  buzzyDivElement.style.width = "50px";
+  buzzyDivElement.style.backgroundImage = `url('${chrome.runtime.getURL(
+    "images/customCursor.svg"
+  )}')`;
+  buzzyDivElement.style.backgroundSize = "cover";
+  buzzyDivElement.style.zIndex = "1000";
+  document.body.appendChild(buzzyDivElement);
+  console.log(buzzyDivElement);
 };
 
 const changeCursor = () => {
