@@ -32,8 +32,52 @@ const dropImageAtClick = (x, y) => {
   )}')`;
   buzzyDivElement.style.backgroundSize = "cover";
   buzzyDivElement.style.zIndex = "1000";
+
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  buzzyDivElement.addEventListener(
+    "mousedown",
+    (e) => {
+      isDragging = true;
+      offsetX = e.clientX - buzzyDivElement.getBoundingClientRect().left;
+      offsetY = e.clientY - buzzyDivElement.getBoundingClientRect().top;
+      e.stopPropagation();
+    },
+    true
+  );
+
+  document.addEventListener(
+    "mousemove",
+    (e) => {
+      if (isDragging) {
+        buzzyDivElement.style.left = `${e.clientX - offsetX}px`;
+        buzzyDivElement.style.top = `${e.clientY - offsetY}px`;
+        e.stopPropagation();
+      }
+    },
+    true
+  );
+
+  document.addEventListener(
+    "mouseup",
+    (e) => {
+      isDragging ? (isDragging = false) : null;
+      e.stopPropagation();
+    },
+    true
+  );
+
+  buzzyDivElement.addEventListener(
+    "click",
+    (e) => {
+      console.log("Buzzy Div Clicked");
+      e.stopPropagation();
+    },
+    true
+  );
+
   document.body.appendChild(buzzyDivElement);
-  console.log(buzzyDivElement);
 };
 
 const changeCursor = () => {
