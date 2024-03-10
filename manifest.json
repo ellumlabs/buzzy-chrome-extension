@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Buzzy",
-  "version": "1.0",
+  "version": "0.1",
   "description": "Buzzy Notification App",
   "icons": {
     "16": "images/buzzy-logo16.png",
@@ -11,7 +11,8 @@
   "permissions": [
     "storage",
     "activeTab",
-    "scripting"
+    "scripting",
+    "tabs"
   ],
   "action": {
     "default_popup": "js/index.html",
@@ -22,12 +23,26 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
     }
   ],
   "host_permissions": [
     "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "images/customCursor.svg"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
   ],
   "commands": {
     "triggerBuzz": {
