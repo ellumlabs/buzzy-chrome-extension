@@ -19,6 +19,8 @@ import useFetch from '../hooks/useFetch'
 
 const Home = () => {
   const { data: sites, isPending, error } = useFetch('http://localhost:3000/sites')
+  const sortedSites = sites && sites.sort((a, b) => new Date(b.timeAdded) - new Date(a.timeAdded))
+  const siteCount = sortedSites && sortedSites.length
 
   return (
     <Box display='flex' flexDirection='column' alignItems='flex-start'>
@@ -39,11 +41,12 @@ const Home = () => {
           />
         </Box>
         <Box>
-          <Text fontSize='sm'>2 Sites</Text>
+          {isPending ? <Text fontSize="sm">Loading...</Text> : <Text fontSize='sm'>{siteCount} Sites</Text>}
+          
           <Divider />
           <List>
-            {sites && (
-              sites.map((site) => (
+            {sortedSites && (
+              sortedSites.map((site) => (
                 <ListItem>
                   <Button leftIcon={<ArrowRightIcon />} variant="ghost" w="100%" justifyContent='flex-start'>
                     {site.url}
