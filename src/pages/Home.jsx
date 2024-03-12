@@ -15,14 +15,16 @@ import { Search2Icon, ArrowRightIcon, PlusSquareIcon } from '@chakra-ui/icons'
 
 import MenuDrawer from '../components/MenuDrawer'
 
-import { PLACEHOLDER_SITES_LIST } from '../constants/constants'
+import useFetch from '../hooks/useFetch'
 
 const Home = () => {
+  const { data: sites, isPending, error } = useFetch('http://localhost:3000/sites')
+
   return (
     <Box display='flex' flexDirection='column' alignItems='flex-start'>
       <MenuDrawer />
       <Box display='flex' flexDirection='column' gap='4' w='100%' pl='10' pr='10'>
-        <Text fontSize='lg'>Sites</Text> 
+        <Text fontSize='lg'>Sites</Text>
         <InputGroup>
           <InputLeftElement pointerEvents='none'>
             <Search2Icon />
@@ -32,7 +34,7 @@ const Home = () => {
         <Box display='flex'>
           <IconButton
             colorScheme='blue'
-             size='sm'
+            size='sm'
             icon={<PlusSquareIcon />}
           />
         </Box>
@@ -40,15 +42,15 @@ const Home = () => {
           <Text fontSize='sm'>2 Sites</Text>
           <Divider />
           <List>
-            {
-              PLACEHOLDER_SITES_LIST.map(site => (
+            {sites && (
+              sites.map((site) => (
                 <ListItem>
-                  <Button leftIcon={<ArrowRightIcon />} variant='ghost' w="100%" justifyContent='flex-start'>
-                    {site?.url}
+                  <Button leftIcon={<ArrowRightIcon />} variant="ghost" w="100%" justifyContent='flex-start'>
+                    {site.url}
                   </Button>
                 </ListItem>
               ))
-            }
+            )}
           </List>
         </Box>
       </Box>

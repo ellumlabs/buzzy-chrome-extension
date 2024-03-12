@@ -16,6 +16,12 @@ Bundle the extension:
 yarn run build 
 ```
 
+Build the database:
+
+```bash
+yarn run db 
+```
+
 Alternativly, bundle the extension with interactive watch mode:
 
 ```bash
