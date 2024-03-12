@@ -13,6 +13,7 @@ document.addEventListener(
     if (imageDropEnabled) {
       e.preventDefault();
       dropImageAtClick(e.clientX, e.clientY);
+      handleServerAdd();
       resetCursor();
       imageDropEnabled = false;
     }
@@ -88,7 +89,7 @@ const resetCursor = () => {
   });
 };
 
-function onBuzzyClick(event) {
+const onBuzzyClick = (event) => {
   event.stopPropagation();
 
   const clickedDiv = event.currentTarget;
@@ -157,4 +158,36 @@ function onBuzzyClick(event) {
       clickedDiv.buzzyDiv.style.top = `${window.scrollY + rect.bottom}px`;
     }
   }
+};
+
+const handleServerAdd = () => {
+  const newSite = {
+    id: uuidv4(),
+    url: window.location.href,
+    timeAdded: new Date().toISOString(),
+  };
+
+  fetch("http://localhost:3000/sites", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newSite),
+  })
+    .then((resp) => resp.json())
+    .then((data) => {
+      console.log("Data", data);
+    })
+    .catch((err) => {
+      console.log("Error:", err);
+    });
+};
+
+function uuidv4() {
+  return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) =>
+    (
+      c ^
+      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+    ).toString(16)
+  );
 }
