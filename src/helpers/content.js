@@ -1,10 +1,46 @@
 let imageDropEnabled = false;
 
+// I have to have init() below me
+const fetchData = async () => {
+  try {
+    const resp = await fetch("http://localhost:3000/sites");
+    const sites = await resp.json();
+
+    const currentSiteData = sites.filter(
+      (site) => site.url === window.location.href
+    );
+    return currentSiteData;
+  } catch (err) {
+    console.log("Error:", err);
+  }
+};
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "triggerBuzz") {
     changeCursor();
     imageDropEnabled = true;
   }
+});
+
+async function init() {
+  try {
+    const siteData = await fetchData();
+    console.log("init", siteData);
+    siteData.forEach((data) => {
+      console.log("dom content loaded", data);
+      dropImageAtClick(data.x, data.y);
+    });
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const siteData = await fetchData();
+  siteData.forEach((data) => {
+    console.log("dom content loaded", data);
+    createBuzzyImage(data);
+  });
 });
 
 document.addEventListener(
@@ -13,7 +49,7 @@ document.addEventListener(
     if (imageDropEnabled) {
       e.preventDefault();
       dropImageAtClick(e.clientX, e.clientY);
-      handleServerAdd();
+      handleServerAdd(e.clientX, e.clientY);
       resetCursor();
       imageDropEnabled = false;
     }
@@ -89,6 +125,20 @@ const resetCursor = () => {
   });
 };
 
+const createBuzzyImage = (data) => {
+  const img = document.createElement("img");
+  img.style.backgroundImage = `url('${chrome.runtime.getURL(
+    "images/customCursor.svg"
+  )}')`;
+  img.style.position = "absolute";
+  img.style.left = `${data.x}px`;
+  img.style.top = `${data.y}px`;
+  img.style.zIndex = "1000"; 
+  console.log("createBuzzyImage", data);
+  document.body.appendChild(img);
+  console.log("createBuzzyImage2", data);
+};
+
 const onBuzzyClick = (event) => {
   event.stopPropagation();
 
@@ -160,11 +210,13 @@ const onBuzzyClick = (event) => {
   }
 };
 
-const handleServerAdd = () => {
+const handleServerAdd = (x, y) => {
   const newSite = {
     id: uuidv4(),
     url: window.location.href,
     timeAdded: new Date().toISOString(),
+    x: x,
+    y: y,
   };
 
   fetch("http://localhost:3000/sites", {
@@ -182,6 +234,9 @@ const handleServerAdd = () => {
       console.log("Error:", err);
     });
 };
+
+// I have to have fetchData() above me
+init();
 
 function uuidv4() {
   return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) =>
