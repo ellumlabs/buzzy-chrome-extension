@@ -15,7 +15,6 @@ const main = () => {
   let originalCursor = true;
 
   const triggerBuzz = () => {
-    // console.log("background");
     if (originalCursor) {
       originalCursor = false;
       console.log("Trigger Buzz");
@@ -28,20 +27,12 @@ const main = () => {
   };
 
   const handleMouseClickElementSelect = (e) => {
-    // console.log("mouse clicked");
     document.documentElement.style.cursor = originalCursorStyle;
     let clickedElement = e.target;
 
     console.log('clickedElement: ', clickedElement);
     if (clickedElement != null) {
-      console.log('chrome', chrome)
-      chrome.action.onClicked.addListener((tab) => {
-        console.log('tab: ', tab)
-        chrome.scripting.executeScript({
-          target: { tabId: tab.id },
-          files: ["content.js"],
-        });
-      });
+      console.log('chrome.tabs', chrome.tabs)
     }
   };
 
