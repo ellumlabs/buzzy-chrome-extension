@@ -8,10 +8,7 @@ import {
   List,
   ListItem,
   Button,
-  IconButton
 } from '@chakra-ui/react'
-
-import { Search2Icon, ArrowRightIcon, PlusSquareIcon } from '@chakra-ui/icons'
 
 import MenuDrawer from '../components/MenuDrawer'
 
@@ -29,15 +26,13 @@ const Home = () => {
         <Text fontSize='lg'>Sites</Text>
         <InputGroup>
           <InputLeftElement pointerEvents='none'>
-            <Search2Icon />
           </InputLeftElement>
           <Input placeholder='Search sites' />
         </InputGroup>
         <Box display='flex'>
-          <IconButton
+          <Button
             colorScheme='blue'
             size='sm'
-            icon={<PlusSquareIcon />}
           />
         </Box>
         <Box>
@@ -48,7 +43,7 @@ const Home = () => {
             {sortedSites && (
               sortedSites.map((site) => (
                 <ListItem>
-                  <Button leftIcon={<ArrowRightIcon />} variant="ghost" w="100%" justifyContent='flex-start'>
+                  <Button variant="ghost" w="100%" justifyContent='flex-start'>
                     {site.url}
                   </Button>
                 </ListItem>
@@ -62,3 +57,4 @@ const Home = () => {
 }
 
 export default Home 
+

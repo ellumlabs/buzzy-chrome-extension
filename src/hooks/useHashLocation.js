@@ -20,3 +20,4 @@ const useHashLocation = () => {
 }
 
 export default useHashLocation
+
