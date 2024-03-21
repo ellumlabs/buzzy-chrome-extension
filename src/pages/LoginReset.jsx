@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 
 import { Box, Input, Button, Text, Image, Divider } from '@chakra-ui/react'
 
-import logo from '../assets/icons/buzzy-logo48.png'
-
 import { Link, useLocation } from 'wouter';
 
 const LoginReset = () => {
@@ -11,11 +9,6 @@ const LoginReset = () => {
 
   return (
     <Box display="flex" flexDirection="column" gap="4" m={8}>
-      <Image
-        boxSize='48px'
-        src={logo}
-        alt='buzzy logo'
-      />
       <Text fontSize='3xl' as='b'>Forgot your password?</Text>
       <p>
         To reset your password, please enter the email address of your Buzzy account.
@@ -35,3 +28,4 @@ const LoginReset = () => {
 }
 
 export default LoginReset 
+

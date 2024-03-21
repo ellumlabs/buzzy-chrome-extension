@@ -12,3 +12,4 @@ export const PLACEHOLDER_SITES_LIST = [
     url: 'www.motel5.com'
   },
 ]
+

@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 
 import { Box, Input, InputGroup, InputRightElement, Button, Text, Divider, Image } from '@chakra-ui/react'
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 
-import logo from '../assets/icons/buzzy-logo48.png'
 
 import { Link, useLocation } from 'wouter';
 
@@ -22,11 +20,6 @@ const Login = () => {
 
   return (
     <Box display="flex" flexDirection="column" gap="4" m={8}>
-      <Image
-        boxSize='48px'
-        src={logo}
-        alt='buzzy logo'
-      />
       <Text fontSize='3xl' as='b'>Log in</Text>
       <Button variant='outline'>Continue with Google</Button>
       <Divider />
@@ -47,7 +40,7 @@ const Login = () => {
         />
         <InputRightElement width='1.75rem' mr={1}>
           <Button h='1.75rem' size='sm' variant='ghost' _hover={{ bg: '#ffffff' }} onClick={handleClick}>
-            {show ? <ViewIcon /> : <ViewOffIcon />}
+            {show ? <p>view on icon</p>: <p>view off icon</p>}
           </Button>
         </InputRightElement>
       </InputGroup>
@@ -64,3 +57,4 @@ const Login = () => {
 }
 
 export default Login
+
