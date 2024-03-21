@@ -1,0 +1,81 @@
+{
+  "sites": [
+    {
+      "id": "b150a840-8a92-4907-980b-87bde554ed68",
+      "url": "https://news.ycombinator.com/news",
+      "timeAdded": "2024-03-13T00:33:54.241Z",
+      "x": 1009,
+      "y": 281
+    },
+    {
+      "id": "75d67da6-0122-4565-9962-47d820f3f745",
+      "url": "https://news.ycombinator.com/",
+      "timeAdded": "2024-03-13T00:37:34.363Z",
+      "x": 529,
+      "y": 115
+    },
+    {
+      "id": "2f25a03a-686d-4a2c-8478-b9d3c655b48b",
+      "url": "https://news.ycombinator.com/",
+      "timeAdded": "2024-03-13T00:38:44.915Z",
+      "x": 697,
+      "y": 443
+    },
+    {
+      "id": "d5cea426-09ba-4a01-9573-e0bcabb84fbb",
+      "url": "https://news.ycombinator.com/",
+      "timeAdded": "2024-03-13T00:38:50.476Z",
+      "x": 464,
+      "y": 575
+    },
+    {
+      "id": "230faddd-3b02-422b-a402-97c35fc6aaf6",
+      "url": "https://www.youtube.com/feed/subscriptions",
+      "timeAdded": "2024-03-13T00:39:41.524Z",
+      "x": 261,
+      "y": 132
+    },
+    {
+      "id": "b0b00ba3-8769-49b2-95d8-dac97e68dd32",
+      "url": "https://www.youtube.com/feed/subscriptions",
+      "timeAdded": "2024-03-13T00:39:44.680Z",
+      "x": 675,
+      "y": 139
+    },
+    {
+      "id": "fc17ef52-ffcf-45be-882b-3640bb164707",
+      "url": "https://devdocs.io/",
+      "timeAdded": "2024-03-13T00:40:45.522Z",
+      "x": 586,
+      "y": 189
+    },
+    {
+      "id": "fea26606-019d-4057-a6de-a5d293d56b36",
+      "url": "https://devdocs.io/",
+      "timeAdded": "2024-03-13T00:40:47.253Z",
+      "x": 87,
+      "y": 151
+    },
+    {
+      "id": "4c626148-b1b4-44f4-8936-0f3453f90be9",
+      "url": "https://www.google.com/search?q=instagram&ie=UTF-8",
+      "timeAdded": "2024-03-13T00:46:31.021Z",
+      "x": 919,
+      "y": 257
+    },
+    {
+      "id": "ef716f67-d1a2-4654-91fe-736b539f8830",
+      "url": "https://www.google.com/search?q=instagram&ie=UTF-8",
+      "timeAdded": "2024-03-13T00:46:35.593Z",
+      "x": 257,
+      "y": 339
+    },
+    {
+      "id": "18a398f0-7973-42e1-9b17-c8109879a10c",
+      "url": "https://www.instagram.com/",
+      "timeAdded": "2024-03-13T00:46:55.768Z",
+      "x": 519,
+      "y": 270
+    }
+  ]
+}
