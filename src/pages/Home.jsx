@@ -8,6 +8,11 @@ import {
   List,
   ListItem,
   Button,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel
 } from '@chakra-ui/react'
 
 import MenuDrawer from '../components/MenuDrawer'
@@ -23,6 +28,28 @@ const Home = () => {
     <Box display='flex' flexDirection='column' alignItems='flex-start'>
       <MenuDrawer />
       <Box display='flex' flexDirection='column' gap='4' w='100%' pl='10' pr='10'>
+        <Button>
+          <Text>New Buzzy</Text>
+        </Button>
+        <Tabs variant='enclosed'>
+          <TabList>
+            <Tab>Feed</Tab>
+            <Tab>Tags</Tab>
+            <Tab>Organizations</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>
+              <p>one!</p>
+            </TabPanel>
+            <TabPanel>
+              <p>two!</p>
+            </TabPanel>
+            <TabPanel>
+              <p>three!</p>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+
         <Text fontSize='lg'>Sites</Text>
         <InputGroup>
           <InputLeftElement pointerEvents='none'>
