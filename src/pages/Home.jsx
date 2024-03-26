@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react'
 
 import MenuDrawer from '../components/MenuDrawer'
+import Feed from '../pages/Feed'
 
 import useFetch from '../hooks/useFetch'
 
@@ -27,7 +28,11 @@ const Home = () => {
   return (
     <Box display='flex' flexDirection='column' alignItems='flex-start'>
       <MenuDrawer />
-      <Box display='flex' flexDirection='column' gap='4' w='100%' pl='10' pr='10'>
+      <Box display='flex'>
+        <Text>Buzzy</Text>
+        <Text>Logo</Text>
+      </Box>
+      <Box display='flex' flexDirection='column' gap='4' w='100%'>
         <Button>
           <Text>New Buzzy</Text>
         </Button>
@@ -39,7 +44,7 @@ const Home = () => {
           </TabList>
           <TabPanels>
             <TabPanel>
-              <p>one!</p>
+              <Feed />
             </TabPanel>
             <TabPanel>
               <p>two!</p>
@@ -49,35 +54,6 @@ const Home = () => {
             </TabPanel>
           </TabPanels>
         </Tabs>
-
-        <Text fontSize='lg'>Sites</Text>
-        <InputGroup>
-          <InputLeftElement pointerEvents='none'>
-          </InputLeftElement>
-          <Input placeholder='Search sites' />
-        </InputGroup>
-        <Box display='flex'>
-          <Button
-            colorScheme='blue'
-            size='sm'
-          />
-        </Box>
-        <Box>
-          {isPending ? <Text fontSize="sm">Loading...</Text> : <Text fontSize='sm'>{siteCount} Sites</Text>}
-          
-          <Divider />
-          <List>
-            {sortedSites && (
-              sortedSites.map((site) => (
-                <ListItem>
-                  <Button variant="ghost" w="100%" justifyContent='flex-start'>
-                    {site.url}
-                  </Button>
-                </ListItem>
-              ))
-            )}
-          </List>
-        </Box>
       </Box>
     </Box>
   )
