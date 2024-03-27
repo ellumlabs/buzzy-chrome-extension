@@ -12,7 +12,12 @@ const Feed = () => {
         </InputLeftElement>
         <Input placeholder='Search by tags/users/comments' />
       </InputGroup>
-      <FeedItemCard />
+      <FeedItemCard 
+        title='Konstantin buzzed you'
+        message='@Kevin and @Josh lets use a different image for this card'
+        url='https://hackernews.com/news'
+        status='todo'
+      />
     </Box>
   )
 }
