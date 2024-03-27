@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import { Box, Input, InputGroup, InputRightElement, Button, Text, Divider, Image } from '@chakra-ui/react'
-
+import { Box, Input, InputGroup, InputRightElement, Button, Text, Divider, Image, Icon } from '@chakra-ui/react'
+import { FaEye, FaEyeSlash } from "react-icons/fa"
 
 import { Link, useLocation } from 'wouter';
 
@@ -40,7 +40,7 @@ const Login = () => {
         />
         <InputRightElement width='1.75rem' mr={1}>
           <Button h='1.75rem' size='sm' variant='ghost' _hover={{ bg: '#ffffff' }} onClick={handleClick}>
-            {show ? <p>view on icon</p>: <p>view off icon</p>}
+            {show ? <Icon as={FaEye} /> : <Icon as={FaEyeSlash} />}
           </Button>
         </InputRightElement>
       </InputGroup>

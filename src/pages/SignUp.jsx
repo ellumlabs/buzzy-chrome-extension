@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Input, InputGroup, InputRightElement, Button, Box, Image, Text, Divider } from '@chakra-ui/react'
+import { Input, InputGroup, InputRightElement, Button, Box, Text, Divider, Icon } from '@chakra-ui/react'
+import { FaEye, FaEyeSlash } from "react-icons/fa"
 import { Link } from 'wouter';
 
 const SignUp = () => {
@@ -30,7 +31,7 @@ const SignUp = () => {
         />
         <InputRightElement width='1.75rem' mr={1}>
           <Button h='1.75rem' size='sm' variant='ghost' _hover={{ bg: '#ffffff' }} onClick={handleClick}>
-            {show ? <p>view on icon</p> : <p>view off icon</p>}
+            {show ? <Icon as={FaEye} /> : <Icon as={FaEyeSlash} />}
           </Button>
         </InputRightElement>
       </InputGroup>
