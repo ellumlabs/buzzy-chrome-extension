@@ -17,10 +17,13 @@ const Home = () => {
           <Menu>
             <MenuButton
               as={Button}
+              variant='ghost'
+              paddingLeft='1'
+              paddingRight='1'
               leftIcon={<Avatar size='sm' name='Kola Tioluwani' src='https://bit.ly/sage-adebayo' />}
               rightIcon={<FaAngleDown />}
             >
-              Actions
+              Giannis
             </MenuButton>
             <MenuList>
               <MenuItem>Download</MenuItem>
