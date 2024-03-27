@@ -1,21 +1,19 @@
-import {
-  Input,
-  InputGroup,
-  InputLeftElement,
-} from '@chakra-ui/react'
+import { Box, Input, InputGroup, InputLeftElement, Icon } from '@chakra-ui/react'
+import { FaSearch } from "react-icons/fa"
 
-import FeedList from '../components/Feed'
+import FeedItemCard from '../components/FeedItemCard'
 
 const Feed = () => {
   return (
-    <div>
+    <Box display='flex' flexDirection='column' gap='2'>
       <InputGroup>
         <InputLeftElement pointerEvents='none'>
+          <Icon as={FaSearch} />
         </InputLeftElement>
-        <Input placeholder='Search sites' />
+        <Input placeholder='Search by tags/users/comments' />
       </InputGroup>
-      <FeedList />
-    </div>
+      <FeedItemCard />
+    </Box>
   )
 }
 

@@ -1,12 +1,6 @@
 import {
   Box,
   Text,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Divider,
-  List,
-  ListItem,
   Button,
   Tabs,
   TabList,
@@ -15,7 +9,6 @@ import {
   TabPanel
 } from '@chakra-ui/react'
 
-import MenuDrawer from '../components/MenuDrawer'
 import Feed from '../pages/Feed'
 
 import useFetch from '../hooks/useFetch'
@@ -27,7 +20,6 @@ const Home = () => {
 
   return (
     <Box display='flex' flexDirection='column' alignItems='flex-start'>
-      <MenuDrawer />
       <Box display='flex'>
         <Text>Buzzy</Text>
         <Text>Logo</Text>
@@ -47,10 +39,10 @@ const Home = () => {
               <Feed />
             </TabPanel>
             <TabPanel>
-              <p>two!</p>
+              <p>Tags</p>
             </TabPanel>
             <TabPanel>
-              <p>three!</p>
+              <p>Organizations</p>
             </TabPanel>
           </TabPanels>
         </Tabs>
