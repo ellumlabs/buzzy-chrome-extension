@@ -2,13 +2,15 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 
-console.log('dirName: ', __dirname)
+const isDev = true
 
 export default defineConfig({
   plugins: [react()],
   build: {
     outDir: './dist',
-    emptyOutDir: true,
+    minify: !isDev,
+    reportCompressedSize: !isDev,
+    emptyOutDir: !isDev,
     rollupOptions: {
       input: {
         index: resolve(__dirname, './index.html'),
@@ -16,7 +18,7 @@ export default defineConfig({
       },
       output: {
         entryFileNames: "assets/[name].js",
-        chunkFileNames: "assets/[name].js",
+        chunkFileNames: isDev ? "assets/[name].js"  : "assets/[name].[hash].js",
         assetFileNames: "assets/[name].[ext]"
       }
     }

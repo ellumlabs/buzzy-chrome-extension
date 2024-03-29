@@ -1,5 +1,6 @@
-import { Box, Text, Button, Tabs, TabList, TabPanels, Tab, TabPanel, Avatar, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react'
-import { FaPlusCircle, FaAngleDown } from "react-icons/fa"
+import { Box, Text, Button, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import { FaPlusCircle } from "react-icons/fa"
+import Header from '../components/Header'
 import Feed from '../pages/Feed'
 
 import useFetch from '../hooks/useFetch'
@@ -10,31 +11,16 @@ const Home = () => {
   const siteCount = sortedSites && sortedSites.length
 
   return (
-    <Box display='flex' flexDirection='column'>
-      <Box display='flex' alignItems='center' justifyContent='space-between' mt='4' ml='4' mr='4'>
-        <Text fontSize='2xl'>Buzzy</Text>
-        <Box>
-          <Menu>
-            <MenuButton
-              as={Button}
-              variant='ghost'
-              paddingLeft='1'
-              paddingRight='1'
-              leftIcon={<Avatar size='sm' name='Kola Tioluwani' src='https://bit.ly/sage-adebayo' />}
-              rightIcon={<FaAngleDown />}
-            >
-              Giannis
-            </MenuButton>
-            <MenuList>
-              <MenuItem>Download</MenuItem>
-            </MenuList>
-          </Menu>
-        </Box>
+    <Box display='flex' flexDirection='column' gap='4'>
+      <Box pt='4' pl='4' pr='4'>
+        <Header />
       </Box>
-      <Box display='flex' flexDirection='column' gap='4' w='100%' p='4'>
-        <Button rightIcon={<FaPlusCircle />}>
+      <Box pl='4' pr='4'>
+        <Button rightIcon={<FaPlusCircle />} w='100%'>
           <Text>New Buzzy</Text>
         </Button>
+      </Box>
+      <Box display='flex' flexDirection='column' gap='4' w='100%' pl='4' pr='4'>
         <Tabs variant='enclosed'>
           <TabList>
             <Tab>Feed</Tab>
