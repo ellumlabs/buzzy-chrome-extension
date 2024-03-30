@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     <Box display='flex' flexDirection='column' gap='4'>
-      <Box pt='4' pl='4' pr='4'>
+      <Box as='header' pt='4' pl='4' pr='4' position='sticky' top='0' zIndex='sticky' width='full' bg='white'>
         <Header />
       </Box>
       <Box pl='4' pr='4'>

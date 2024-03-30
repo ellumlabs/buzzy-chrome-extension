@@ -1,10 +1,15 @@
-import { Box, Text, Button, Avatar, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react'
+import { Box, Text, Button, Avatar, Menu, MenuButton, MenuList, MenuItem, Image } from '@chakra-ui/react'
 import { FaAngleDown } from "react-icons/fa"
+import logo from '../assets/buzzy-logo.png'
+
 
 const Header = () => {
   return (
     <Box display='flex' alignItems='center' justifyContent='space-between'>
-      <Text fontSize='2xl'>Buzzy</Text>
+      <Box display='flex' alignItems='center' gap='2'>
+        <Image src={logo} boxSize='40px' alt='Dan Abramov' />
+        <Text fontSize='xl' as='b'>Buzzy</Text>
+      </Box>
       <Box>
         <Menu>
           <MenuButton
