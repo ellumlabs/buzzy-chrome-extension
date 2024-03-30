@@ -18,6 +18,18 @@ const Feed = () => {
         url='https://hackernews.com/news'
         status='todo'
       />
+      <FeedItemCard 
+        title='Vlad buzzed you'
+        message='@Kevin rephrase this to showcase our new launch'
+        url='https://hackernews.com/news/1384833'
+        status='in progress'
+      />
+      <FeedItemCard 
+        title='Konstantin buzzed you'
+        message='@Kevin can we convert this to a sorted list'
+        url='https://hackernews.com/items'
+        status='done'
+      />
     </Box>
   )
 }

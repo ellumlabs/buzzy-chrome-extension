@@ -23,8 +23,8 @@ const FeedItemCard = ({ title, message, url, status }) => {
   }
 
   return (
-    <Box p='2' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-      <Box display='flex' justifyContent='space-between'>
+    <Box borderWidth='1px' borderRadius='lg' overflow='hidden'>
+      <Box m='2' display='flex' justifyContent='space-between'>
         <Box display='flex' alignItems='center' gap='2'>
           <Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
           <Text as='b' fontSize='md'>{title}</Text>
@@ -36,7 +36,7 @@ const FeedItemCard = ({ title, message, url, status }) => {
         />
       </Box>
 
-      <Box p='2' mt='2' display='flex' flexDirection='column' gap='2' backgroundColor='#F3F3F3' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+      <Box m='2' p='2' display='flex' flexDirection='column' gap='2' backgroundColor='#F3F3F3' borderWidth='1px' borderRadius='lg' overflow='hidden'>
         <Text as='b'>{message}</Text>
         <Link href='#' isExternal>{url}</Link>
         <Box display='flex' gap='2'>
