@@ -1,5 +1,6 @@
 import { Box, Text, Button, Avatar, Menu, MenuButton, MenuList, MenuItem, Image } from '@chakra-ui/react'
 import { FaAngleDown } from "react-icons/fa"
+import { FaGear } from "react-icons/fa6"
 import logo from '../assets/buzzy-logo.png'
 
 
@@ -23,7 +24,9 @@ const Header = () => {
             <Text>Giannis</Text>
           </MenuButton>
           <MenuList>
-            <MenuItem>Settings</MenuItem>
+            <MenuItem icon={<FaGear />}>
+              Settings
+            </MenuItem>
           </MenuList>
         </Menu>
       </Box>
