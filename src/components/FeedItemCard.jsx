@@ -36,7 +36,7 @@ const FeedItemCard = ({ title, message, url, status }) => {
         />
       </Box>
 
-      <Box m='2' p='2' display='flex' flexDirection='column' gap='2' backgroundColor='#F3F3F3' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+      <Box m='2' p='2' display='flex' flexDirection='column' alignItems='flex-start' gap='2' backgroundColor='#F3F3F3' borderWidth='1px' borderRadius='lg' overflow='hidden'>
         <Text as='b'>{message}</Text>
         <Link href='#' isExternal>{url}</Link>
         <Box display='flex' gap='2'>

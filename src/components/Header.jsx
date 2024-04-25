@@ -1,10 +1,12 @@
-import { Box, Text, Button, Avatar, Menu, MenuButton, MenuList, MenuItem, Image } from '@chakra-ui/react'
+import { Box, Text, Button, Avatar, Menu, MenuButton, MenuList, MenuItem, Image, useDisclosure } from '@chakra-ui/react'
 import { FaAngleDown } from "react-icons/fa"
 import { FaGear } from "react-icons/fa6"
 import logo from '../assets/buzzy-logo.png'
-
+import SettingsModal from './SettingsModal'
 
 const Header = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
     <Box display='flex' alignItems='center' justifyContent='space-between'>
       <Box display='flex' alignItems='center' gap='2'>
@@ -23,8 +25,9 @@ const Header = () => {
           >
             <Text>Giannis</Text>
           </MenuButton>
+          <SettingsModal isOpen={isOpen} onClose={onClose} />
           <MenuList>
-            <MenuItem icon={<FaGear />}>
+            <MenuItem icon={<FaGear />} onClick={onOpen}>
               Settings
             </MenuItem>
           </MenuList>

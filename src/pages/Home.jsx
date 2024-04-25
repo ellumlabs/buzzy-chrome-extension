@@ -3,6 +3,8 @@ import { FaPlusCircle } from "react-icons/fa"
 import colors from '../constants/colors'
 import Header from '../components/Header'
 import Feed from '../pages/Feed'
+import Tags from '../pages/Tags'
+import Organizations from '../pages/Organizations'
 
 import useFetch from '../hooks/useFetch'
 
@@ -29,7 +31,7 @@ const Home = () => {
         </Button>
       </Box>
       <Box display='flex' flexDirection='column' gap='4' w='100%' pl='4' pr='4'>
-        <Tabs variant='enclosed'>
+        <Tabs variant='enclosed' align='center' isFitted>
           <TabList>
             <Tab>Feed</Tab>
             <Tab>Tags</Tab>
@@ -40,10 +42,10 @@ const Home = () => {
               <Feed />
             </TabPanel>
             <TabPanel>
-              <p>Tags</p>
+              <Tags />
             </TabPanel>
             <TabPanel>
-              <p>Organizations</p>
+              <Organizations />
             </TabPanel>
           </TabPanels>
         </Tabs>
