@@ -13,7 +13,6 @@ import {
 } from '@chakra-ui/react'
 
 const SettingsModal = ({isOpen, onClose}) => {
-
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />

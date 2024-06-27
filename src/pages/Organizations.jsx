@@ -9,11 +9,15 @@ import {
   Select,
   Divider,
   UnorderedList,
-  ListItem
+  ListItem,
+  useDisclosure
 } from '@chakra-ui/react'
 import { FaSearch, FaPlus } from "react-icons/fa"
+import AddOrganizationModal from '../components/AddOrganizationModal'
 
 const Organizations = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
     <Box display='flex' flexDirection='column' gap='4'>
       <InputGroup>
@@ -27,7 +31,7 @@ const Organizations = () => {
           <option value='option1'>Active</option>
           <option value='option2'>Archived</option>
         </Select>
-        <IconButton aria-label='add-organization' icon={<FaPlus />} />
+        <IconButton aria-label='add-organization' icon={<FaPlus />} onClick={onOpen} />
       </Box>
       <Box display='flex' flexDirection='column' alignItems='flex-start'>
         <Text>4 Organizations</Text>
@@ -39,6 +43,7 @@ const Organizations = () => {
           <ListItem>Manchester City</ListItem>
         </UnorderedList>
       </Box>
+      <AddOrganizationModal isOpen={isOpen} onClose={onClose} />
     </Box>
   )
 }
